@@ -1,105 +1,72 @@
-import { createSignal } from 'solid-js'
-import heroImg from './assets/hero.png'
-import solidLogo from './assets/solid.svg'
-import viteLogo from './assets/vite.svg'
+import { createSignal, For, Show } from 'solid-js'
+import TodoItem from './components/TodoItem'
 import './App.css'
 
+interface Todo {
+  id: number
+  text: string
+  done: boolean
+}
+
 function App() {
-  const [count, setCount] = createSignal(0)
+  const [todos, setTodos] = createSignal<Todo[]>([])
+  const [text, setText] = createSignal('')
+
+  const addTodo = (e: Event) => {
+    e.preventDefault()
+    if (!text().trim()) return
+    setTodos([...todos(), { id: Date.now(), text: text(), done: false }])
+    setText('')
+  }
+
+  const toggleTodo = (id: number) => {
+    setTodos(todos().map((t) => (t.id === id ? { ...t, done: !t.done } : t)))
+  }
+
+  const removeTodo = (id: number) => {
+    setTodos(todos().filter((t) => t.id !== id))
+  }
 
   return (
-    <>
-      <section id="center">
-        <div class="hero">
-          <img src={heroImg} class="base" width="170" height="179" alt="" />
-          <img src={solidLogo} class="framework" alt="Solid logo" />
-          <img src={viteLogo} class="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          class="counter"
-          onClick={() => setCount((count) => count + 1)}
+    <div class="app">
+      <header>
+        <h1>Att göra</h1>
+      </header>
+
+      <main>
+        <form onSubmit={addTodo}>
+          <input
+            type="text"
+            placeholder="Vad ska göras?"
+            value={text()}
+            onInput={(e) => setText(e.currentTarget.value)}
+          />
+          <button type="submit">Lägg till</button>
+        </form>
+
+        <Show
+          when={todos().length > 0}
+          fallback={<p class="empty">Inga uppgifter än.</p>}
         >
-          Count is {count()}
-        </button>
-      </section>
-
-      <div class="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg class="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
           <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img class="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://solidjs.com/" target="_blank">
-                <img class="button-icon" src={solidLogo} alt="" />
-                Learn more
-              </a>
-            </li>
+            <For each={todos()}>
+              {(todo) => (
+                <TodoItem
+                  text={todo.text}
+                  done={todo.done}
+                  onToggle={() => toggleTodo(todo.id)}
+                  onRemove={() => removeTodo(todo.id)}
+                />
+              )}
+            </For>
           </ul>
-        </div>
-        <div id="social">
-          <svg class="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg class="button-icon" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg class="button-icon" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg class="button-icon" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg class="button-icon" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        </Show>
+      </main>
 
-      <div class="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <footer>
+        <p>{todos().filter((t) => !t.done).length} kvar</p>
+      </footer>
+    </div>
   )
 }
 
