@@ -1,28 +1,32 @@
-## Usage
+# Att göra – SolidJS + TypeScript
+
+Enkel att-göra-lista byggd med [SolidJS](https://www.solidjs.com/) och TypeScript, som del av skoluppgiften "Frontend ramverk".
+
+## Installation
 
 ```bash
-$ npm install # or pnpm install or yarn install
+npm install
+npm run dev
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+Öppna sedan `http://localhost:5173`.
 
-## Available Scripts
+## Byggd för produktion
 
-In the project directory, you can run:
+```bash
+npm run build
+```
 
-### `npm run dev`
+## Använda delar av ramverket (G-krav: minst 4 av 7)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+| Punkt | Var i koden |
+| --- | --- |
+| Databindning | `src/App.tsx` – `<input value={text()} onInput={...}>` |
+| Villkorlig rendering | `src/App.tsx` – `<Show when={...} fallback={...}>` visar meddelande när listan är tom |
+| Loop rendering | `src/App.tsx` – `<For each={todos()}>` renderar en `TodoItem` per uppgift |
+| Klass- och stilbindning | `src/components/TodoItem.tsx` – `classList={{ done: props.done }}` för genomstruken text |
+| Tillståndshantering | `src/App.tsx` – `createSignal` för listan av uppgifter och input-texten |
+| Eventhantering | `src/App.tsx` / `TodoItem.tsx` – `onSubmit`, `onClick` för att lägga till, checka av och ta bort uppgifter |
+| Komponenter | `src/components/TodoItem.tsx` – egen komponent som återanvänds i loopen |
 
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-Learn more about deploying your application with the [documentations](https://vite.dev/guide/static-deploy.html)
+Ingen routing används (ej ett krav för G).
