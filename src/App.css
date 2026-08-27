@@ -4,6 +4,15 @@
   padding: 24px 16px;
 }
 
+header {
+  text-align: center;
+}
+
+header a,
+footer a {
+  color: var(--accent);
+}
+
 form {
   display: flex;
   gap: 8px;

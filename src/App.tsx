@@ -1,4 +1,5 @@
 import { createSignal, For, Show } from 'solid-js'
+import { A } from '@solidjs/router'
 import TodoItem from './components/TodoItem'
 import './App.css'
 
@@ -31,6 +32,7 @@ function App() {
     <div class="app">
       <header>
         <h1>Att göra</h1>
+        <A href="/om">Om ramverket</A>
       </header>
 
       <main>

@@ -29,4 +29,10 @@ npm run build
 | Eventhantering | `src/App.tsx` / `TodoItem.tsx` – `onSubmit`, `onClick` för att lägga till, checka av och ta bort uppgifter |
 | Komponenter | `src/components/TodoItem.tsx` – egen komponent som återanvänds i loopen |
 
-Ingen routing används (ej ett krav för G).
+## Klient-routing (VG-krav)
+
+| Punkt | Var i koden |
+| --- | --- |
+| Klient-routing | `src/index.tsx` – `<Router>`/`<Route>` (`@solidjs/router`) mellan `/` (Todo-appen) och `/om` (`src/components/About.tsx`) |
+
+Alla 7 G-punkter samt klient-routing används – uppfyller VG-kraven.
