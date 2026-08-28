@@ -1,4 +1,4 @@
-# Att göra – SolidJS + TypeScript
+#  SolidJS + TypeScript
 
 Enkel att-göra-lista byggd med [SolidJS](https://www.solidjs.com/) och TypeScript, som del av skoluppgiften "Frontend ramverk".
 
