@@ -1,0 +1,70 @@
+https://docs.google.com/spreadsheets/d/1hiGT51deaQxEgwT_v1wtOkuVlHShqc_9N-pT_vy0tVg/edit
+
+# Frontend ramverk
+
+Inspirerad ifrån [stateofjs](https://stateofjs.com) där du som student väljer ett av de listade ramverken och skapar en valfri enklare sida med det valda ramverket.
+
+## Installation & Utveckling
+
+Skapa ett projekt med önskat ramverk exempelvis med hjälp av: `npm init vite@latest` och följ instruktionerna. Håll det enkelt men vill du använda typescript istället för javascript så kan det vara en bra idé.
+
+Kör `npm install` för att installera modulerna för projektet när du är klar. Därefter startar du din utvecklingsserver med `npm run dev`.
+
+Tänk på att installera ev VSCode tillägg för ditt ramverk så du får korrekt syntax highlighting.
+
+## Uppgiftsbeskrivning
+
+Utöver att en bygga en hemsida utifrån bilden ovan i det valda ramverket ska du också hålla en muntlig presentation om ramverket. Den muntliga presentationen skall hållas med hjälp av ett presentationsverktyg och vara ca 10-15 minuter lång. Du ska i din presentation visa vad du har byggt. Fokus ska läggas på att beskriva vad du har lärt dig om ramverket, hur det används, vem som har skapat det, mm. Saker som bör tas upp i presentationen är: syntax, databindning, tillståndshantering, mm. men även kort om community, dokumentation och framtid.
+
+Här är en lista på de delar du ska välja att använda i din projekt För G. Minst 4 av 7 delar.
+
+- [X] Databindning
+- [X] Villkorlig rendering
+- [X] Loop rendering
+- [X] Klass- och stilbindning
+- [X] Tillståndshantering
+- [X] Eventhantering
+- [X] Komponenter
+
+För VG ska du använda samtliga ovan och även lägga till routing i projektet.
+
+- [X] Klient-routing
+
+OBS: Du ska ha med samtliga punkter i din presentation och förklara hur du har använt det och hur det fungerar.
+
+## Inlämning & Presentation
+
+Kodprojektet ska zippas ihop och lämnas in på läroplattformen. Presentationen ska exporteras till PDF och också lämnas in.
+
+Presentation kommer att ske i mindre grupper on ca. 4 person där du har en kort demo på ditt projekt och går igenom de delar som du har använt ifrån ramverket du valt, se listan längre upp. Du ska med små kodexempel från din egna kod kunna förklara vad du har använt och hur det fungerar. Vill du lägga till ytterligare exempel för fördjupad förklaring går det också bra.
+
+Tiden för presentationen bör se ut ungefär såhär:
+
+- Demo (2min)
+- Intro till ramverk (2min)
+- Hur det tekniskt fungerar (6min)
+- Avslut (1min)
+- Frågor (2min)
+
+Totalt: ca 10-15 min.
+
+**Inlämningen skall alltså bestå av en zippad mapp och en PDF.**
+
+### Krav för Godkänt
+
+- [X] Uppgiften har lämnats in i tid (Kod & Presentation).
+- [X] Koden innehåller en renskriven Readmefil.
+- [X] Git och GitHub har använts (med regelbunda commits).
+- [X] Sidan innehåller semantisk HTML och är responsiv.
+- [X] Minst fyra av de sju punkterna från listan ovan har används i din kod
+- [X] Under "Hur det tekniskt fungerar" i din presentation förklarar du de delar du använt.
+
+_Gjorda krav ska kryssas för._
+
+### Krav för Väl Godkänt
+
+- [X] Samtliga punkter ifrån listan ovan används inklusive klient-routing.
+- [X] Under "Hur det tekniskt fungerar" i din presentation förklarar du alla delarna.
+- [X] Under presentationstillfället ska du vara med och ställa frågor om det presenterade ramverken.
+
+_Gjorda krav ska kryssas för._
